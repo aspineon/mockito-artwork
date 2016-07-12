@@ -1,0 +1,14 @@
+# imagemagick : brew install imagemagick --with-librsvg
+convert -density 400 -resize 400x200 -background none -depth 8 mockito-logo_25-03_decimal2.svg logo.png
+convert -density 400 -resize 800x400 -background none -depth 8 mockito-logo_25-03_decimal2.svg logo@2x.png
+
+# also see https://github.com/audreyr/favicon-cheat-sheet
+# this one doesn't remove background
+convert mockito-logo-verre_27-03_d2.svg -density 400 \( -clone 0 -resize 16x16 -background transparent \) \( -clone 0 -resize 32x32  -background transparent \) \( -clone 0 -resize 48x48  -background transparent \) \( -clone 0 -resize 64x64  -background transparent \) -depth 8 -delete 0 mockito.ico
+
+# Or 
+convert -density 400 -resize 32x32 -background none -depth 8 mockito-logo-verre_27-03_d2.svg mockito-32.png
+convert -density 400 -resize 16x16 -background none -depth 8 mockito-logo-verre_27-03_d2.svg mockito-16.png
+convert -density 400 -resize 48x48 -background none -depth 8 mockito-logo-verre_27-03_d2.svg mockito-48.png
+convert -density 400 -resize 64x64 -background none -depth 8 mockito-logo-verre_27-03_d2.svg mockito-64.png
+convert mockito-16.png mockito-32.png mockito-48.png mockito-64.png favicon.ico
